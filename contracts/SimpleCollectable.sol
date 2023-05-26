@@ -5,12 +5,9 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 
 contract SimpleCollectable is ERC721URIStorage {
     uint256 public tokenCounter;
-    string public nftName;
-    event NFTName(string _name);
 
-    constructor(string memory _name) ERC721("INFUSION", "IA") {
+    constructor() ERC721("INFUSION", "IA") {
         tokenCounter = 0;
-        nftName = _name;
     }
 
     function createCollectibles(
@@ -19,7 +16,6 @@ contract SimpleCollectable is ERC721URIStorage {
         uint256 tokenId = tokenCounter;
         _safeMint(msg.sender, tokenId);
         _setTokenURI(tokenId, tokenURI);
-        emit NFTName(nftName);
         tokenCounter++;
         return tokenId;
     }

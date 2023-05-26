@@ -15,10 +15,7 @@ OPENSEA_URL = "https://testnets.opensea.io/assets/{}/{}"
 def main():
     # account = get_account()
     account = accounts.load("nilesh-account")
-    nft_name = "Hell"
-    collectables = SimpleCollectable.deploy(nft_name, {"from": account})
+    collectables = SimpleCollectable.deploy({"from": account})
     tx = collectables.createCollectibles(sample_token_uri, {"from": account})
-    name = collectables.nftName()
-    print("NFT_name:", name)
     tx.wait(1)
     print(OPENSEA_URL.format(collectables.address, collectables.tokenCounter() - 1))
