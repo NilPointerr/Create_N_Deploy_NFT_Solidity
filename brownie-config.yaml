@@ -1,0 +1,21 @@
+dependencies:
+  - OpenZeppelin/openzeppelin-contracts@4.8.3
+  # - smartcontractkit/chainlink-brownie-contracts@0.6.0
+
+compiler:
+  solc:
+    remappings:
+      - "@openzeppelin=OpenZeppelin/openzeppelin-contracts@4.8.3"
+      # - "@chainlink=smartcontractkit/chainlink-brownie-contracts@0.6.0"
+
+wallets:
+  from_key: ${PRIVATE_KEY}
+
+# networks:
+#   sepolia:
+#     host: https://sepolia.network
+#     chainid: 11155111
+#     gas_price: auto
+#     explorer: https://sepolia.explorer
+
+dotenv: .env
